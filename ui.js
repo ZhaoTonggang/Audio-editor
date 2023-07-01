@@ -1141,74 +1141,74 @@
 			{
 				name: '帮助',
 				children: [
-					{
-						name: '生成离线版本',
-						action: function () {
-							if (window.location.href.indexOf('-cache') > 0) {
+					// {
+					// 	name: '生成离线版本',
+					// 	action: function () {
+					// 		if (window.location.href.indexOf('-cache') > 0) {
 
-								function onUpdateReady(e) {
-									if (confirm('Would you like to refresh the page to load the newer version?'))
-										window.location.reload();
-								}
-								function downLoading(e) {
-									OneUp('Downloading newer version', 1500);
-								}
+					// 			function onUpdateReady(e) {
+					// 				if (confirm('Would you like to refresh the page to load the newer version?'))
+					// 					window.location.reload();
+					// 			}
+					// 			function downLoading(e) {
+					// 				OneUp('Downloading newer version', 1500);
+					// 			}
 
-								window.applicationCache.onupdateready = onUpdateReady;
-								window.applicationCache.ondownloading = downLoading;
+					// 			window.applicationCache.onupdateready = onUpdateReady;
+					// 			window.applicationCache.ondownloading = downLoading;
 
-								if (window.applicationCache.status === window.applicationCache.UPDATEREADY) {
-									onUpdateReady();
-								}
+					// 			if (window.applicationCache.status === window.applicationCache.UPDATEREADY) {
+					// 				onUpdateReady();
+					// 			}
 
-								window.applicationCache.update();
+					// 			window.applicationCache.update();
 
-								return;
-							}
+					// 			return;
+					// 		}
 
-							var message = '这将打开一个新窗口，该窗口将尝试在您的浏览器中存储本地版本'; // nicer text
+					// 		var message = '这将打开一个新窗口，该窗口将尝试在您的浏览器中存储本地版本'; // nicer text
 
-							new PKSimpleModal({
-								title: '生成并打开离线版本？',
+					// 		new PKSimpleModal({
+					// 			title: '生成并打开离线版本？',
 
-								ondestroy: function (q) {
-									app.ui.InteractionHandler.on = false;
-									app.ui.KeyHandler.removeCallback('modalTempErr');
-								},
+					// 			ondestroy: function (q) {
+					// 				app.ui.InteractionHandler.on = false;
+					// 				app.ui.KeyHandler.removeCallback('modalTempErr');
+					// 			},
 
-								buttons: [
-									{
-										title: 'OPEN',
-										callback: function (q) {
-											window.open('/index-cache.html');
-											q.Destroy();
-										}
-									}
-								],
-								body: '<p>' + message + '</p>',
-								setup: function (q) {
-									app.fireEvent('RequestPause');
-									app.fireEvent('RequestRegionClear');
+					// 			buttons: [
+					// 				{
+					// 					title: 'OPEN',
+					// 					callback: function (q) {
+					// 						window.open('/index-cache.html');
+					// 						q.Destroy();
+					// 					}
+					// 				}
+					// 			],
+					// 			body: '<p>' + message + '</p>',
+					// 			setup: function (q) {
+					// 				app.fireEvent('RequestPause');
+					// 				app.fireEvent('RequestRegionClear');
 
-									app.ui.InteractionHandler.checkAndSet('modal');
-									app.ui.KeyHandler.addCallback('modalTempErr', function (e) {
-										q.Destroy();
-									}, [27]);
-								}
-							}).Show();
-							// -
-						},
-						setup: function (obj) {
-							if (window.location.href.indexOf('-cache') > 0) {
-								obj.innerHTML = '升级离线版本';
-							}
-						}
-					},
+					// 				app.ui.InteractionHandler.checkAndSet('modal');
+					// 				app.ui.KeyHandler.addCallback('modalTempErr', function (e) {
+					// 					q.Destroy();
+					// 				}, [27]);
+					// 			}
+					// 		}).Show();
+					// 		// -
+					// 	},
+					// 	setup: function (obj) {
+					// 		if (window.location.href.indexOf('-cache') > 0) {
+					// 			obj.innerHTML = '升级离线版本';
+					// 		}
+					// 	}
+					// },
 
 					{
 						name: '关于',
 						action: function () {
-							window.open('/about.html');
+							window.open('https://www.heheda.top');
 						}
 					},
 
