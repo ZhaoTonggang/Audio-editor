@@ -1224,6 +1224,13 @@
 						action: function () {
 							window.open('https://blog.heheda.top/');
 						}
+					},
+
+					{
+						name: '乐器实验室',
+						action: function () {
+							window.open('https://instrument.heheda.top/');
+						}
 					}
 				]
 			}
